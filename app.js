@@ -4,8 +4,10 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const mysql = require('mysql2');
 
-var indexRouter = require('./routes/index');
-var carsRouter = require('./routes/cars');
+const indexRouter = require('./routes/index');
+const carsRouter = require('./routes/cars');
+const contactRouter = require('./routes/contact');
+
 
 var app = express();
 
@@ -25,5 +27,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/cars', carsRouter);
+app.use('/contact', contactRouter);
 
 module.exports = app;
